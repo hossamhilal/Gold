@@ -28,6 +28,16 @@
         $('body').removeClass('stopScroll');  
     });
 
+    $(window).on('scroll', function(){
+        let sticky = $('#about').offset().top;
+        // let sticky = 400;
+        if ($(window).scrollTop() >= sticky) {
+            $('.headerBox').addClass('sticky');
+        } else {
+            $('.headerBox').removeClass('sticky');
+        }
+    });
+
     var rtlVal = true ;    
     if($('body').hasClass('en')) {
         rtlVal = false;

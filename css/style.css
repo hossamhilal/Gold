@@ -167,7 +167,6 @@ textarea:active {
     border-radius: 14px;
     width: 160px;
     height: 45px;
-    box-shadow: 0px 0px 10px #1FDE8233;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -369,6 +368,22 @@ button:focus {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+.headerBox.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--bgDark);
+    z-index: 9;
+    border-radius: 0 0 30px 30px;
+    padding: 20px;
+}
+
+.headerBox.sticky .logo {
+    max-width: 63px;
 }
 
 .headerSlider {
@@ -647,6 +662,24 @@ button:focus {
         width: 100px;
         left: 0;
         right: auto;
+    }
+
+    .headerBox.sticky {
+        padding: 10px 20px;
+    }
+    
+    .headerBox.sticky .social {
+        display: none;
+    }
+    
+    .headerBox.sticky .language {
+        position: relative;
+        margin-inline-start: auto;
+        margin-inline-end: 20px;
+    }
+    
+    .headerBox.sticky .logo {
+        max-width: 47px;
     }
 }
 
@@ -953,6 +986,61 @@ button:focus {
 
 .aboutVector img {
     width: 100%;
+}
+
+.imgAnimationBox {
+    position: relative;
+    overflow: hidden;
+}
+
+.imgAnimationBox::before {
+    content: "";
+    top: 0;
+    left: 0;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    z-index: 2;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: var(--white);
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    border: 0;
+}
+
+.imgAnimationBox::after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: var(--white);
+    opacity: 0;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.imgAnimation:hover .imgAnimationBox::before {
+    left: 50%;
+    width: 0;
+    opacity: .5;
+}
+
+.imgAnimation:hover .imgAnimationBox::after {
+    top: 50%;
+    height: 0;
+    opacity: .5;
 }
 
 @media screen and (max-width:768px) {
